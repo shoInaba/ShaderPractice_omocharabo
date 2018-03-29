@@ -21,10 +21,11 @@
 		};
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
+			// tex2D関数はuvからtextureの色を抜き出す
 			fixed4 c1 = tex2D(_MainTex, IN.uv_MainTex);
 			fixed4 c2 = tex2D(_SubTex, IN.uv_MainTex);
 			fixed4 p = tex2D(_MaskTex, IN.uv_MainTex);
-			o.Albedo = lerp(c1, c2, 1.0f);
+			o.Albedo = lerp(c1, c2, p);
 		}
 		ENDCG
 	}
