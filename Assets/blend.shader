@@ -26,6 +26,11 @@
 			fixed4 c2 = tex2D(_SubTex, IN.uv_MainTex);
 			fixed4 p = tex2D(_MaskTex, IN.uv_MainTex);
 			o.Albedo = lerp(c1, c2, p);
+
+			// lerpの中身
+			// color.r = c1.r * p + c2.r * (1 - p);
+			// color.g = c1.g * p + c2.g * (1 - p);
+			// color.b = c1.b * p + c2.b * (1 - p);
 		}
 		ENDCG
 	}
